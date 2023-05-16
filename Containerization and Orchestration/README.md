@@ -32,3 +32,12 @@ Some things to take into consideration:
 - You also want to take advantage of the dockerized images you already have
 
 You've chosen to use Kubernetes as the container orchestration tool!
+
+
+# The Challenge...
+
+## To the clouds!!!
+
+- Take the application (frontend, backend and database) and deploy it in a Kubernetes cluster.
+- Create the necessary resources for all parts to communicate with each other.
+- Make sure that all configuration and secrets are managed via Kubernetes resources and not injected on the images via docker build arguments.
