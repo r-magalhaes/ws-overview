@@ -8,6 +8,36 @@
 - DockerHub Account (https://hub.docker.com/)
 - AWS CLI (https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
+
+## Running with Kind
+
+If you use kind for this workshop create it with Ingress support.
+
+[Kind config with ingress support](https://dustinspecker.com/posts/test-ingress-in-kind/)
+
+```
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"        
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 80
+        protocol: TCP
+      - containerPort: 443
+        hostPort: 443
+        protocol: TCP
+```
+
+
+
+
 ## Optional
 
 - kubectx and kubens (https://github.com/ahmetb/kubectx)
