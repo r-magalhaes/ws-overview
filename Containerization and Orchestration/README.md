@@ -1,13 +1,22 @@
 # Pre-Requisites
 
-- Git
-- GitHub Account
-- Docker 
-- Local Kubernetes Cluster (Kind, Minikube)
-- kubectl
-- DockerHub Account (https://hub.docker.com/)
-- AWS CLI (https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+## Install the following tools:
 
+In front the ver
+
+- Git (https://git-scm.com/downloads) (Version: 2.39.2)
+- Docker (https://www.docker.com/) (Engine: 23.0.5; Server: 4.19.0)
+- Local Kubernetes Cluster (Kind, Minikube)
+- kubectl (Version: 1.27)
+- Helm (https://helm.sh/docs/intro/install/)(Version: v3.12.0)
+
+## Accounts
+
+- GitHub Account (https://github.com/)
+- DockerHub Account (https://hub.docker.com/)
+
+<br>
+<br>
 
 ## Running with Kind
 
@@ -42,6 +51,9 @@ nodes:
 
 - kubectx and kubens (https://github.com/ahmetb/kubectx)
 
+<br>
+<br>
+
 # The App!
 
 ![ToDo List](./assets/ToDoList.png "ToDo List")
@@ -52,9 +64,24 @@ nodes:
 
 [Database](https://github.com/r-magalhaes/ws-database)
 
+
+## Setup
+
+- Navigate to a directory of your chosing to host the repositories
+
+```git clone https://github.com/r-magalhaes/ws-frontend```
+
+```git clone https://github.com/r-magalhaes/ws-backend```
+
+```git clone https://github.com/r-magalhaes/ws-database```
+
+
+<br>
+<br>
+
 # The Problem...
 
-We've been managing the deployment of this application in an on-premise. So far this app is been used inside of your organisation which made it pretty simples to manage all around. You've dockarized the Front-end, Back-end and even the Database. Now your organisation decided to launch the app online for other people to use it.
+We've been managing the deployment of this application on-premise. So far this app is been used inside of your organisation which made it pretty simples to manage all around. You've dockarized the Front-end, Back-end and even the Database. Now your organisation decided to launch the app online for other people to use it.
 
 Some things to take into consideration:
 - You're aware you'll need to have control over increasing/decreasing load when the App goes live
@@ -63,10 +90,31 @@ Some things to take into consideration:
 
 You've chosen to use Kubernetes as the container orchestration tool!
 
+<br>
+<br>
+
+# Warmup
+
+Let's focus on the foundation of it all...the Dockerfile.
+
+## Objectives:
+- Learn the basics of build a Dockerfile
+- Employ some best-practices to it
+
+## Notes:
+- Clone/fork the following repo to start with [next-example](https://github.com/r-magalhaes/ws-next-postgres)
+
+```git clone https://github.com/r-magalhaes/ws-next-postgres```
+
+- Build the Dockerfile for this example project
+- Let's employ some best practices to our already working Dockerfile
+
+<br>
+<br>
 
 # The Challenge...
 
-## To the clouds!!!
+## To the clouds!!! 🚀
 
 - Take the application (frontend, backend and database) and deploy it in a Kubernetes cluster.
 - Create the necessary resources for all parts to communicate with each other.
