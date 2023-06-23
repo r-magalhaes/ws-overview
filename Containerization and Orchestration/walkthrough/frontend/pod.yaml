@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: workshop-frontend
+spec:
+  containers:
+  - name: workshop-frontend
+    image: ricardomiguel/ws-fe
+    ports:
+    - containerPort: 80

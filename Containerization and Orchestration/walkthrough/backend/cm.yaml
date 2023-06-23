@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-conn
+data:
+  host: "workshop-database-postgresql"
+  port: "5432"

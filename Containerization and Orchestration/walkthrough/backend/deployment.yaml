@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workshop-backend-deployment
+  labels:
+    app: workshop-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workshop-backend
+  template:
+    metadata:
+      labels:
+        app: workshop-backend
+    spec:
+      containers:
+      - name: workshop-backend
+        image: ricardomiguel/ws-be:k8s
+        ports:
+        - containerPort: 5000
+        env:
+          - name: PGHOST
+            valueFrom:
+              configMapKeyRef:
+                name: db-conn
+                key: host
+          - name: PGPORT
+            valueFrom:
+              configMapKeyRef:
+                name: db-conn
+                key: port
+          - name: PGUSER
+            valueFrom:
+              secretKeyRef:
+                name: be-secret
+                key: user
+          - name: PGPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: be-secret
+                key: pass
+          - name: PGDATABASE
+            valueFrom:
+              secretKeyRef:
+                name: be-secret
+                key: database

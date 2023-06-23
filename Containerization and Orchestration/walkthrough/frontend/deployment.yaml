@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workshop-frontend-deployment
+  labels:
+    app: workshop-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workshop-frontend
+  template:
+    metadata:
+      labels:
+        app: workshop-frontend
+    spec:
+      containers:
+      - name: workshop-frontend
+        image: ricardomiguel/ws-fe:k8s
+        ports:
+        - containerPort: 80

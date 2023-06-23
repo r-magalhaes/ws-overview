@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: workshop-backend-ingress
+spec:
+  rules:
+  - host: ws.backend.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: workshop-backend-service
+            port:
+              number: 5000
